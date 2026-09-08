@@ -102,8 +102,9 @@ SET origin_airport = CASE origin_airport
 END
 WHERE month = 10;
 ```
-🗂️ Repo Dizin Yapısı
-Bash
+## 🗂️ Proje Dosya Yapısı
+
+```text
 ├── 📁 assets/
 │   ├── airline_delays.png           # Taşıyıcı ortalama gecikme grafiği
 │   ├── airport_monthly_heatmap.png  # Havalimanı aylık yoğunluk ısı haritası
@@ -120,4 +121,4 @@ Bash
     ├── airline_queries.sql          # Havayolu metrik sorguları
     ├── create_tables.sql            # Şema ve tablo tanımları
     ├── FlightsData.sql              # Ana tablo yapılandırması
-    └── process_of_analyst.sql       # Anomali düzeltme ve veri işleme adımları
+    └── process_of_analyst.sql       # Anomali düzeltme ve veri işleme adımlarıı

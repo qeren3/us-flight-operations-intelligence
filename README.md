@@ -101,7 +101,7 @@ SET origin_airport = CASE origin_airport
     ELSE origin_airport
 END
 WHERE month = 10;
-
+```
 🗂️ Repo Dizin Yapısı
 Bash
 ├── 📁 assets/

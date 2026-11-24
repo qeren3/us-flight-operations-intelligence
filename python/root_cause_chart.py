@@ -1,16 +1,7 @@
 import pandas as pd
-from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 
-# 1. Veritabanı Bağlantısı
-DB_USER = "postgres"
-DB_PASSWORD = ""
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "airline_db"
-
-connection_string = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-engine = create_engine(connection_string)
+from db_connect import read_query
 
 # 2. Kök Neden Sorgusu
 query = """
@@ -25,7 +16,7 @@ WHERE departure_delay > 0;
 """
 
 print("Kök neden verisi çekiliyor...")
-df = pd.read_sql(query, engine)
+df = read_query(query)
 
 # Tabloyu grafik için uygun formata getiriyoruz (Tek satırdan İsim-Değer ikilisine)
 categories = list(df.columns)

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flight-operations-intelligence"
+version = "0.1.0"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools]
+packages = ["dashboard", "dashboard.pages", "flight_analytics_db"]
+
+[tool.setuptools.package-dir]
+flight_analytics_db = "python"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }

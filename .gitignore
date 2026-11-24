@@ -1,0 +1,50 @@
+# Local secrets & environment configuration
+.env
+.env.*
+!.env.example
+
+# Raw datasets & large database dumps (preserve validated October 2015 crosswalk)
+data/raw/
+*.csv
+!data/reference/airport_id_iata_crosswalk_2015_10.csv
+*.parquet
+*.feather
+*.zip
+*.tar.gz
+*.sql.gz
+*.dump
+*.bak
+
+# Python generated files & packaging artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE, editor, and OS clutter
+.vscode/
+.idea/
+*.swp
+*.swo
+tempCodeRunnerFile.*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local root-level chart script outputs (tracked assets in assets/ remain unaffected)
+/airline_delays.png
+/root_cause_distribution.png
+/hourly_delay_trend.png
+/airport_monthly_heatmap.png

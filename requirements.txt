@@ -1,0 +1,8 @@
+pandas
+SQLAlchemy
+psycopg2-binary
+python-dotenv
+matplotlib
+seaborn
+streamlit>=1.36,<2.0
+plotly>=5.18,<7.0

@@ -1,17 +1,8 @@
 import pandas as pd
-from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 1. Bağlantı Motoru
-DB_USER = "postgres"
-DB_PASSWORD = ""
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "airline_db"
-
-connection_string = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-engine = create_engine(connection_string)
+from db_connect import read_query
 
 # 2. Saatlik Gecikme Sorgusu
 query = """
@@ -25,7 +16,7 @@ ORDER BY departure_hour ASC;
 """
 
 print("Saatlik veri çekiliyor...")
-df = pd.read_sql(query, engine)
+df = read_query(query)
 
 # 0-23 saat aralığı dışındaki olası hatalı uç değerleri filtreleyelim
 df = df[(df['departure_hour'] >= 0) & (df['departure_hour'] <= 23)]

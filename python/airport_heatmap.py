@@ -1,17 +1,8 @@
 import pandas as pd
-from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 1. Veritabanı Bağlantısı
-DB_USER = "postgres"
-DB_PASSWORD = ""
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "airline_db"
-
-connection_string = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-engine = create_engine(connection_string)
+from db_connect import read_query
 
 # 2. En Yoğun 10 Havalimanı (Doğrudan kod filtreleme)
 top_airports = ('ATL', 'ORD', 'DFW', 'DEN', 'LAX', 'SFO', 'PHX', 'IAH', 'LAS', 'MSP')
@@ -29,7 +20,7 @@ ORDER BY origin_airport, month;
 """
 
 print("Veri çekiliyor...")
-df = pd.read_sql(query, engine)
+df = read_query(query)
 
 # Havalimanlarına şehir etiketleri ekleyelim
 airport_labels = {
